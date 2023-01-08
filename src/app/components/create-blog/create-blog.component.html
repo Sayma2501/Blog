@@ -1,1 +1,38 @@
-<p>create-blog works!</p>
+<div class="card col-6 mx-auto">
+  <h5 class="card-header">Create Blog</h5>
+  <div class="card-body">
+    <form class="" [formGroup]="createBlogForm" (ngSubmit)="createBlog(createBlogForm)">
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="blogTitle" maxlength="150" [(ngModel)]="blogObj.blogTitle"
+          placeholder="Title goes here">
+        <mat-hint>Title should be less than 150 characters</mat-hint>
+      </mat-form-field>
+      <div class="text-danger"
+        *ngIf="createBlogForm.get('blogTitle')?.invalid && (createBlogForm.get('blogTitle')?.dirty || createBlogForm.get('blogTitle')?.touched)">
+        Please provide a title.
+      </div>
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="blogDescription" maxlength="1000" [(ngModel)]="blogObj.blogDescription"
+          placeholder="Description goes here"></textarea>
+        <mat-hint>Description should be less than 1000 characters</mat-hint>
+      </mat-form-field>
+      <div class="text-danger"
+        *ngIf="createBlogForm.get('blogDescription')?.invalid && (createBlogForm.get('blogDescription')?.dirty || createBlogForm.get('blogDescription')?.touched)">
+        Please provide a title.
+      </div>
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="blogCategory" [(ngModel)]="blogObj.blogCategory" multiple>
+          <mat-option *ngFor="let category of blogCategoryList" [value]="category">{{category}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="text-danger"
+        *ngIf="createBlogForm.get('blogCategory')?.invalid && (createBlogForm.get('blogCategory')?.dirty || createBlogForm.get('blogCategory')?.touched)">
+        Please provide a title.
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="createBlogForm.invalid">Create Blog</button>
+    </form>
+  </div>
+</div>

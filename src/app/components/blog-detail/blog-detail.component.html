@@ -1,1 +1,14 @@
-<p>blog-detail works!</p>
+<div class="col-10 mx-auto">
+  <mat-card class="example-card">
+    <mat-card-content>
+      <mat-card-title>{{blogObj.blogTitle}}</mat-card-title>
+      <mat-card-subtitle>{{blogObj.blogCategory}}</mat-card-subtitle>
+      <p>{{blogObj.blogDescription}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-icon-button>
+        Add Comment
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

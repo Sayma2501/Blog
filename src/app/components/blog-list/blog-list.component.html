@@ -1,1 +1,27 @@
-<p>blog-list works!</p>
+<div class="d-flex justify-content-end mb-4">
+  <input class="form-control" type="search" placeholder="Search" [(ngModel)]="searchText">
+</div>
+<div class="col-12">
+  <div class="row">
+    <div class="col-12 col-sm-6 col-xl-4 mb-3" *ngFor="let blog of blogList | filter: searchText; let index = index">
+      <mat-card class="example-card" [routerLink]="['/blogDetail', blog.blogId]">
+        <!-- (click)="openBlogDetailPage(blog.blogId)"-->
+        <mat-card-content>
+          <mat-card-title>{{blog.blogTitle}}</mat-card-title>
+          <mat-card-subtitle>{{blog.blogCategory}}</mat-card-subtitle>
+          <p>{{blog.blogDescription}}</p>
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <!-- <button mat-button>Edit</button>
+          <button mat-button>Delete</button> -->
+          <button mat-icon-button [routerLink]="['/updateBlog', blog.blogId]">
+            Edit
+          </button>
+          <button mat-icon-button (click)="deleteBlog(blog.blogId)">
+            Delete
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

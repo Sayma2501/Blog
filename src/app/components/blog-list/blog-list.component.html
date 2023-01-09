@@ -5,19 +5,16 @@
   <div class="row">
     <div class="col-12 col-sm-6 col-xl-4 mb-3" *ngFor="let blog of blogList | filter: searchText; let index = index">
       <mat-card class="example-card" [routerLink]="['/blogDetail', blog.blogId]">
-        <!-- (click)="openBlogDetailPage(blog.blogId)"-->
         <mat-card-content>
           <mat-card-title>{{blog.blogTitle}}</mat-card-title>
           <mat-card-subtitle>{{blog.blogCategory}}</mat-card-subtitle>
           <p>{{blog.blogDescription}}</p>
         </mat-card-content>
         <mat-card-actions align="end">
-          <!-- <button mat-button>Edit</button>
-          <button mat-button>Delete</button> -->
-          <button mat-icon-button [routerLink]="['/updateBlog', blog.blogId]">
+          <button mat-icon-button (click)="$event.stopPropagation()" [routerLink]="['/updateBlog', blog.blogId]">
             Edit
           </button>
-          <button mat-icon-button (click)="deleteBlog(blog.blogId)">
+          <button mat-icon-button (click)="$event.stopPropagation(); openDeleteConfirmationBox(blog)">
             Delete
           </button>
         </mat-card-actions>

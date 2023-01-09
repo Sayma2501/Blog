@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { CreateBlogComponent } from './components/create-blog/create-blog.compon
 import { EditBlogComponent } from './components/edit-blog/edit-blog.component';
 import { BlogDetailComponent } from './components/blog-detail/blog-detail.component';
 import { LoginComponent } from './authentication/login/login.component';
+import { DeleteBlogComponent } from './components/delete-blog/delete-blog.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { LoginComponent } from './authentication/login/login.component';
     CreateBlogComponent,
     EditBlogComponent,
     BlogDetailComponent,
-    LoginComponent
+    LoginComponent,
+    DeleteBlogComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { LoginComponent } from './authentication/login/login.component';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

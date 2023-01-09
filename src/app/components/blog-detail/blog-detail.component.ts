@@ -19,7 +19,6 @@ export class BlogDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    debugger
     const oldRecords = localStorage.getItem('blogList');
     if (oldRecords !== null) {
       const blogList = JSON.parse(oldRecords);
